@@ -1,0 +1,15 @@
+*.tmp
+*~
+*#*
+*.swp
+*.ico
+*.bak
+*.yml
+*.sqlite3
+.bundle
+.lock
+test
+tmp
+vendor
+_include
+

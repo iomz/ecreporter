@@ -1,0 +1,29 @@
+!!!
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if (IE 7)&amp;!(IEMobile)] <html class="no-js lt-ie9 lt-ie8" lang="en">
+/[if (IE 8)&amp;!(IEMobile)] <html class="no-js lt-ie9" lang="en">
+/[if (IE 9)] <html class="no-js ie9" lang="en">
+/ [if gt IE 8]><!
+%html{:lang => "en-US"}
+  / <![endif]
+  %head
+    / Meta Tags
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ECReport Viewer
+    / Mobile Specifics
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "true", :name => "HandheldFriendly"}/
+    %meta{:content => "320", :name => "MobileOptimized"}/
+    / Mobile Internet Explorer ClearType Technology
+    /[if IEMobile] <meta http-equiv="cleartype" content="on">
+    / Google Font
+    %link{:href => "http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900", :rel => "stylesheet", :type => "text/css"}
+    / Main
+    %link{:href => "css/main.css", :rel => "stylesheet"}
+    / jQuery Core
+    %script{:src => "vendor/jquery/dist/jquery.min.js"}
+    %script{:src => "vendor/jqueryui/ui/widget.js"}
+    / END JS
+  %body
+    != yield
+

@@ -1,0 +1,13 @@
+{
+  "name": "ecreporter",
+  "version": "0.0.1",
+  "authors": [
+    "Iori Mizutani <iori.mizutani@gmail.com>"
+  ],
+  "description": "ECReport notification application",
+  "private": true,
+  "dependencies": {
+    "jqueryui": "~1.11.2",
+    "chartjs": "~1.0.1"
+  }
+}
