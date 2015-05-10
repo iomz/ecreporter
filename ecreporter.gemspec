@@ -22,9 +22,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "foreman"
 
+  spec.add_dependency "awesome_print"
   spec.add_dependency "faye-websocket"
   spec.add_dependency "haml"
   spec.add_dependency "json"
+  spec.add_dependency "naturally"
+  spec.add_dependency "nokogiri"
   spec.add_dependency "puma"
   spec.add_dependency "sinatra"
   spec.add_dependency "sinatra-activerecord"
