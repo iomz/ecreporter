@@ -22,20 +22,51 @@ div h1 {
     max-width: 1300px;
     height: auto;
 }
-.box {
+.box-gs1 {
     display: inline-block;
     position: relative;
     width: 250px;
     height: 40px;
-    background: #9cc;
+    background: #FF3300;
     z-index: 0;
     margin: 2px 2px 2px -2px;
     transition: all .15s ease-in-out;
 }
-.box:hover {
+.box-gs1:hover {
     background: #c9c;
     z-index: 100;
     transform: scale(1.2,1.2);
     box-shadow: 0 5px 10px 0 rgba(0,0,0,.2);
 }
-
+.box-iso {
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    height: 40px;
+    background: #66CCFF;
+    z-index: 0;
+    margin: 2px 2px 2px -2px;
+    transition: all .15s ease-in-out;
+}
+.box-iso:hover {
+    background: #c9c;
+    z-index: 100;
+    transform: scale(1.2,1.2);
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.2);
+}
+.box-prop {
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    height: 40px;
+    background: #FFFF66;
+    z-index: 0;
+    margin: 2px 2px 2px -2px;
+    transition: all .15s ease-in-out;
+}
+.box-prop:hover {
+    background: #c9c;
+    z-index: 100;
+    transform: scale(1.2,1.2);
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.2);
+}

@@ -6,9 +6,15 @@ function display(tags) {
         "class": "wrapper"
     });
     for (i=0; i<tags.length; i++) {
+        var tagClass = "box-prop";
+        if (tags[i].indexOf("epc") > -1) {
+            tagClass = "box-gs1";
+        } else if (tags[i].indexOf("oid") > -1) {
+            tagClass = "box-iso";
+        }
         var newH1 = $("<h1>"+tags[i]+"</h1>");
         var newLi = $("<div/>", {
-            "class": "box"
+            "class": tagClass
         });
         newH1.appendTo(newLi);
         newLi.appendTo(newUl);

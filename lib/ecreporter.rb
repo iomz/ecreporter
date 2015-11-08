@@ -10,6 +10,7 @@
   rubygems
   sinatra/activerecord
   sinatra/base
+  tilt/haml
   time
   yaml
 ).each { |lib| require lib }
