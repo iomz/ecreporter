@@ -33,18 +33,23 @@ module ECReporter
 
     post '/notify' do
       content_type :xml
+      ap params["xml"]
       parsed_hash = Hash.from_xml(params["xml"])
-      member = parsed_hash["ECReports"]["reports"]["report"]["group"]["groupList"]["member"]
-      epcs = []
-      member.each do |m|
-        epcs << m["epc"]
+      begin
+        member = parsed_hash["ECReports"]["reports"]["report"]["group"]["groupList"]["member"]
+        epcs = []
+        member.each do |m|
+          epcs << m["epc"]
+        end
+        tags = Naturally.sort(epcs)
+        ap tags
+        #p Nokogiri::XML(params["xml"]).children
+        WebsocketHandler.broadcast({ tags: tags})
+        #WebsocketHandler.broadcast({ xml: request.body})
+        #WebsocketHandler.broadcast(Hash.from_xml(request.body.read).to_json)
+      rescue NoMethodError => e
+        p "## groupList empty!"
       end
-      tags = Naturally.sort(epcs)
-      ap tags
-      #p Nokogiri::XML(params["xml"]).children
-      WebsocketHandler.broadcast({ tags: tags})
-      #WebsocketHandler.broadcast({ xml: request.body})
-      #WebsocketHandler.broadcast(Hash.from_xml(request.body.read).to_json)
       nil
     end
   end
