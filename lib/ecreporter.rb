@@ -1,5 +1,5 @@
 %w(
-  awesome_print 
+  awesome_print
   faye/websocket
   haml
   json
@@ -33,18 +33,24 @@ module ECReporter
 
     post '/notify' do
       content_type :xml
-      ap params["xml"]
       parsed_hash = Hash.from_xml(params["xml"])
+      # ap parsed_hash
       begin
-        member = parsed_hash["ECReports"]["reports"]["report"]["group"]["groupList"]["member"]
+        group = parsed_hash["ECReports"]["reports"]["report"]["group"]
+        count = Integer(group["groupCount"]["count"])
         epcs = []
-        member.each do |m|
-          epcs << m["epc"]
+        member = parsed_hash["ECReports"]["reports"]["report"]["group"]["groupList"]["member"]
+        if count < 2
+          epcs << member["epc"]
+        else
+          member.each do |m|
+            epcs << m["epc"]
+          end
         end
         tags = Naturally.sort(epcs)
         ap tags
-        #p Nokogiri::XML(params["xml"]).children
         WebsocketHandler.broadcast({ tags: tags})
+        #ap Nokogiri::XML(params["xml"]).children
         #WebsocketHandler.broadcast({ xml: request.body})
         #WebsocketHandler.broadcast(Hash.from_xml(request.body.read).to_json)
       rescue NoMethodError => e
