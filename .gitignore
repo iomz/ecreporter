@@ -12,4 +12,4 @@ test
 tmp
 vendor
 _include
-
+Gemfile.lock
